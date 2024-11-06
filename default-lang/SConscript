@@ -1,0 +1,2 @@
+Import("env")
+env.SharedLibrary(target = "../bin/language.so", source = [Glob("*.cpp")])

@@ -1,0 +1,36 @@
+/*
+    Buffer layout:
+
+    index - usage
+    0     - the index of the current fibonacci number
+    1     - the current fibonacci number
+    2     - the next fibonacci number
+*/
+
+1> 1> ++ 1<
+
+
+loop:
+    /* Print the fibonacci number */
+    get_val
+    println reg
+
+    /* Calculate one fibonacci iteration */
+    1> get_val 1<
+    + reg
+
+    /* Swap values to advance to the next fibonacci number */
+    get_val
+    > 2 = reg
+    1< get_val
+    1< = reg
+    > 2 get_val
+    1< = reg
+    1<
+
+    /* Check for iteration count */
+    1< get_val ++ 1>
+    if reg >= 20 jump end endif
+    jump loop
+
+end:

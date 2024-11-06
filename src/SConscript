@@ -1,0 +1,2 @@
+Import("env")
+env.Program(target="../bin/seqlang", source = [Glob("*.cpp")])
